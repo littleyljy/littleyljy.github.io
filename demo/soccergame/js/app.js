@@ -63,7 +63,7 @@ function famousMan(score) {
     goalkeeper = '英格兰门将皮克福德';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-3.png)';
   } else {
-    goalkeeper = '全部扑中，获得金手套奖！';
+    goalkeeper = '全部扑中，获得金手套！';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-4.png)';
   }
   console.log('goalkeeper', goalkeeper);
