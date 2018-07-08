@@ -50,10 +50,16 @@ function famousMan(score) {
   if (0 <= score && score < total / 3) {
     goalkeeper = '中国队派来的卧底';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-1.png)';
-  } else if (total / 3 <= score && score < total * 2 / 3) {
+  } else if (total / 3 <= score && score < total / 2) {
     goalkeeper = '冰岛门将哈尔多松';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-2.png)';
-  } else if (total * 2 / 3 <= score && score < total) {
+  } else if (total / 2 <= score && score < total * 2 / 3) {
+    goalkeeper = '俄罗斯门将阿金费耶夫';
+    gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-6.png)';
+  } else if (total * 2 / 3 <= score && score < total * 3 / 4) {
+    goalkeeper = '墨西哥门将奥乔亚';
+    gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-5.png)';
+  }else if (total * 3 / 4 <= score && score < total) {
     goalkeeper = '英格兰门将皮克福德';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-3.png)';
   } else {
