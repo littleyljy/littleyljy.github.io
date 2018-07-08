@@ -220,6 +220,7 @@ var GAME = {
     this.setStatus(status);
     totalScoreText.innerText = this.score;
     resultText.innerText = famousMan(self.score);
+    effect.pause();
     return;
   },
   //更新所有元素状态
