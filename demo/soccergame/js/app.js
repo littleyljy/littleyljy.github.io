@@ -6,6 +6,7 @@ var gameAllSuccess = document.querySelector('.game-all-success');
 var scoreText = document.querySelector('.game-info .score');
 var totalScoreText = document.querySelector('.game-all-success .score');
 var resultText = document.querySelector('.game-all-success .section-title');
+var resultDescText = document.querySelector('.game-all-success .result-desc');
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
@@ -46,28 +47,38 @@ function randomDirection() {
 //返回结果
 function famousMan(score) {
   var goalkeeper = '';
+  var resultdesc = '';
   var total = (CONFIG.numPerLine + CONFIG.totalLevel * CONFIG.numPerLine) * CONFIG.totalLevel / 2;
   if (0 <= score && score < total / 3) {
     goalkeeper = '中国队派来的卧底';
+    resultdesc = 'emmmm...啥也不想说了';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-1.png)';
   } else if (total / 3 <= score && score < total / 2) {
     goalkeeper = '冰岛门将哈尔多松';
+    resultdesc = '不好好接球就要回去当导演了';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-2.png)';
   } else if (total / 2 <= score && score < total * 2 / 3) {
     goalkeeper = '俄罗斯门将阿金费耶夫';
+    resultdesc = '草原雕不发威当我是小鸡咕咕';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-6.png)';
   } else if (total * 2 / 3 <= score && score < total * 4 / 5) {
     goalkeeper = '墨西哥门将奥乔亚';
+    resultdesc = '北美吴镇宇零封卫冕冠军出局';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-5.png)';
-  }else if (total * 4 / 5 <= score && score < total) {
+  }else if (total * 4 / 5 <= score && score < total *9 / 10) {
     goalkeeper = '英格兰门将皮克福德';
+    resultdesc = '小个子保送三喵军团进四强';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-3.png)';
   } else {
-    goalkeeper = '全部扑中，获得金手套！';
+    goalkeeper = '哇塞，获得金手套！';
+    resultdesc = '你太牛了金手套非你莫属';
     gameAllSuccess.style.backgroundImage = 'url(./img/bg-end-4.png)';
   }
   console.log('goalkeeper', goalkeeper);
-  return goalkeeper;
+  return {
+    goalkeeper: goalkeeper,
+    resultdesc: resultdesc
+  }
 }
 
 /**
@@ -225,7 +236,8 @@ var GAME = {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     this.setStatus(status);
     totalScoreText.innerText = this.score;
-    resultText.innerText = famousMan(self.score);
+    resultText.innerText = famousMan(self.score).goalkeeper;
+    resultDescText.innerText = famousMan(self.score).resultdesc;
     effect.pause();
     return;
   },

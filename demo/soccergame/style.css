@@ -70,12 +70,16 @@ a:hover{
   font-size: 14px;
   margin-top: 10px;
 }
-.score{
+.result-desc {
+  font-style: italic;
+  color: #f6d31f;
+}
+.score {
   color: #f6d31f;
   font-weight: 600;
 }
 
-audio{
+audio {
   position: absolute;
   width: 0;
   height: 0;
@@ -100,10 +104,9 @@ audio{
 [data-status="playing"] #canvas{
   display: block;
 }
-
 [data-status="all-success"] .game-all-success{
   display: block;
-  background: url(./img/bg-end.png) no-repeat center 10%;
+  background: url(./img/bg-end-1.png) no-repeat center 10%;
   background-size: 250px;
 }
 
