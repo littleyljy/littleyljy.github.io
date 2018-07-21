@@ -32,14 +32,8 @@ window.requestAnimFrame =
 
 //随机生成方向
 function randomDirection() {
-  var left = 'left';
-  var right = 'right';
-  var direction = Math.round(Math.random());
-  if (direction === 0) {
-    direction = left;
-  } else {
-    direction = right;
-  }
+  var direction = Math.round(Math.random());//随机赋值0或1
+  direction = direction === 0 ? 'left' : 'right';
   console.log('direction', direction);
   return direction;
 }
@@ -247,9 +241,7 @@ var GAME = {
     var opts = this.opts;
     var plane = this.plane;
     var enemies = this.enemies;
-    if (plane.status === 'booming') {
-      return;
-    }
+   
     //清理画布
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     //绘制画布
